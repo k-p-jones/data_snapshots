@@ -65,6 +65,12 @@ GEM
     builder (3.2.4)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
+    database_cleaner (2.0.1)
+      database_cleaner-active_record (~> 2.0.0)
+    database_cleaner-active_record (2.0.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     erubi (1.10.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -80,9 +86,11 @@ GEM
     method_source (1.0.0)
     mimemagic (0.3.5)
     mini_mime (1.0.2)
+    mini_portile2 (2.5.0)
     minitest (5.14.3)
     nio4r (2.5.4)
-    nokogiri (1.11.1-x86_64-darwin)
+    nokogiri (1.11.1)
+      mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     racc (1.5.2)
     rack (2.2.3)
@@ -137,6 +145,7 @@ PLATFORMS
 
 DEPENDENCIES
   data_snapshots!
+  database_cleaner
   sqlite3
 
 BUNDLED WITH
