@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_06_113359) do
+ActiveRecord::Schema.define(version: 2021_02_06_120809) do
 
-  create_table "snapshots", force: :cascade do |t|
+  create_table "data_snapshots_snapshots", force: :cascade do |t|
     t.string "name"
     t.integer "model_id"
     t.string "model_type"
