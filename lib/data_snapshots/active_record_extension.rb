@@ -2,6 +2,9 @@
 
 require 'active_support/concern'
 
+class UnregisteredSnapshotError < StandardError
+end
+
 module DataSnapshots
   module ActiveRecordExtension
     extend ActiveSupport::Concern
@@ -15,7 +18,10 @@ module DataSnapshots
 
     def generate_snapshot(name:)
       snapshot = DataSnapshots.configuration.snapshots[name]
-      return false unless snapshot
+
+      unless snapshot
+        raise UnregisteredSnapshotError.new("Snapshot: #{name} has not been registered")
+      end
 
       data = {}
       snapshot[:methods].each do |name, method|

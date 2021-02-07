@@ -42,9 +42,7 @@ class ActiveRecordExtensionTest < ActiveSupport::TestCase
     assert_equal 2, user.users_name_snapshots.count
 
     # passing the name of a snapshot that hasn't been registered
-    assert_equal false, user.generate_snapshot(name: :unregistered)
-
-    assert_difference 'DataSnapshots::Snapshot.count', 0 do
+    assert_raises UnregisteredSnapshotError do
       user.generate_snapshot(name: :unregistered)
     end
   end
