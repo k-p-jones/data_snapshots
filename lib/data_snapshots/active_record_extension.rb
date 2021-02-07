@@ -13,6 +13,23 @@ module DataSnapshots
       fetch_snapshots(name)
     end
 
+    def generate_snapshot(name:)
+      snapshot = DataSnapshots.configuration.snapshots[name]
+      return false unless snapshot
+
+      data = {}
+      snapshot[:methods].each do |name, method|
+        data[name] = method.call(self)
+      end
+
+      DataSnapshots::Snapshot.create!(
+        name: name,
+        model_id: self.id,
+        model_type: self.class.to_s,
+        data: data
+      )
+    end
+
     private
 
     def fetch_snapshots(name)

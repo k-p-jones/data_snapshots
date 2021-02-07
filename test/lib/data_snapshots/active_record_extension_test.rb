@@ -31,4 +31,21 @@ class ActiveRecordExtensionTest < ActiveSupport::TestCase
     assert_equal 23, snap_1.data['current_age']
     assert_equal 'Bob', snap_2.data['current_name'] 
   end
+
+  test '#generate_snapshot' do
+    user = User.last
+
+    assert_difference 'DataSnapshots::Snapshot.count', 1 do
+      user.generate_snapshot(name: :users_name)
+    end
+
+    assert_equal 2, user.users_name_snapshots.count
+
+    # passing the name of a snapshot that hasn't been registered
+    assert_equal false, user.generate_snapshot(name: :unregistered)
+
+    assert_difference 'DataSnapshots::Snapshot.count', 0 do
+      user.generate_snapshot(name: :unregistered)
+    end
+  end
 end

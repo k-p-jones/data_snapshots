@@ -16,19 +16,8 @@ module DataSnapshots
   end
 
   def self.generate_snapshots(name:, collection:)
-    snapshot = configuration.snapshots[name]
-
     Array(collection).each do |instance|
-      data = {}
-      snapshot[:methods].each do |name, method|
-        data[name] = method.call(instance)
-      end
-      DataSnapshots::Snapshot.create(
-        name: name,
-        model_id: instance.id,
-        model_type: instance.class.to_s,
-        data: data
-      )
+      instance.generate_snapshot(name: name)
     end
   end
 end
