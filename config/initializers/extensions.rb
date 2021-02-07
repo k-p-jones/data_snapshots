@@ -1,0 +1,1 @@
+require 'data_snapshots/active_record_extension'
