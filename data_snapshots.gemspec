@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.version     = DataSnapshots::VERSION
   spec.authors     = ["k-p-jones"]
   spec.email       = ["kenjones620@yahoo.co.uk"]
-  spec.homepage    = ""
-  spec.summary     = ""
-  spec.description = ""
+  spec.homepage    = "https://github.com/k-p-jones/data_snapshots"
+  spec.summary     = "Data snapshots for Rails apps."
+  spec.description = "Flexible data snapshoting for Ruby on Rails."
   spec.license     = "MIT"
 
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
