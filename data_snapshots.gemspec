@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email       = ["kenjones620@yahoo.co.uk"]
   spec.homepage    = "https://github.com/k-p-jones/data_snapshots"
   spec.summary     = "Data snapshots for Rails apps."
-  spec.description = "Flexible data snapshoting for Ruby on Rails."
+  spec.description = "Flexible data snapshotting for Ruby on Rails."
   spec.license     = "MIT"
 
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
