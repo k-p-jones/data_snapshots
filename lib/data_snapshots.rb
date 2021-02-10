@@ -49,4 +49,8 @@ module DataSnapshots
 
     DataSnapshots::Snapshot.create!(name: name, data: data)
   end
+
+  def self.fetch_snapshots(name:)
+    DataSnapshots::Snapshot.where(name: name).order(:created_at)
+  end
 end
