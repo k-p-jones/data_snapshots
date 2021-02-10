@@ -8,9 +8,9 @@ module DataSnapshots
       @snapshots = {}
     end
 
-    def register_snapshot(name:)
+    def register_snapshot(name:, model: true)
       return unless block_given?
-      snapshots[name] = { methods: {} }
+      snapshots[name] = { methods: {}, model: model }
       yield snapshots[name][:methods]
     end
   end
