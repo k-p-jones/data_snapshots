@@ -2,9 +2,6 @@
 
 require 'active_support/concern'
 
-class UnregisteredSnapshotError < StandardError
-end
-
 module DataSnapshots
   module ActiveRecordExtension
     extend ActiveSupport::Concern
