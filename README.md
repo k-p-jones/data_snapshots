@@ -1,5 +1,6 @@
-# data_snapshots
 ![Build](https://github.com/k-p-jones/data_snapshots/workflows/Build/badge.svg)
+# data_snapshots
+
 Simple, flexible data snapshotting for your Rails app.
 
 ## Installation
